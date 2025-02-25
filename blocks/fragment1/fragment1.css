@@ -1,0 +1,185 @@
+
+.fragment1-wrapper {
+ 
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.fragment1 {
+  display: flex;
+  flex-direction: row;
+  color: #111827;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+/* Typography */
+
+.fragment1 h2,h3,p{
+  font-family: var(--body-font-family);
+text-align: center;
+}
+
+.fragment1 h2 {
+  font-size: 34px;
+  margin: 16px 0 8px;
+  font-weight: 100;
+}
+
+.fragment1 h3 {
+  font-size: 24px;
+  margin: 16px 0 8px;
+  font-weight: 100;
+}
+
+.fragment1 p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 16px 0 8px;
+}
+
+.fragment1 p a{
+  color:#111827;
+  text-decoration: underline;
+}
+
+
+
+.fragment1 .column-img-col.image-block img {
+  display: flex;
+  align-items: center;
+  height: auto;
+  width: 120% ;
+  max-width: 700px ;
+  transform: translateX(-30px);
+}
+
+/* Responsive Layout */
+@media (min-width: 900px) {
+  .fragment1 {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 0; 
+      margin-right: 0; 
+  }
+
+  .fragment1 > div:first-child {
+      flex: 70%;
+      
+  }
+
+  .fragment1 > div:last-child {
+      flex: 30%;
+      display: flex;
+      align-items: center;
+      
+  }
+  
+
+  .fragment1 .column-img-col.image-block img {
+   
+    height: 100%;
+    width: 75%;
+    margin-left: 5rem; 
+  }
+
+  .fragment1 .text-block h2 {
+    font-size: 42px;
+    margin: 0;
+  }
+
+  .fragment1 .text-block h3 {
+    font-size: 34px;
+  }
+}
+
+/* Default Mobile View (Image on top, Text below) */
+/* Mobile-First: Stack Image First, Then Text */
+.fragment1.teaser.block.column-2-cols {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fragment1.teaser.block.column-2-cols p a{
+  color:white;
+  text-decoration: underline;
+}
+/* Ensure Image takes full width in mobile view */
+.fragment1.teaser.block.column-2-cols picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.fragment1.teaser.block.column-2-cols img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Text block styling */
+.fragment1.teaser.block.column-2-cols .text-block {
+  background-color: #111827; 
+  color: white; 
+  text-align: center; 
+  width: 100%;
+  padding: 20px 20px;
+  
+}
+
+
+/* Desktop View (900px and above) */
+@media (min-width: 900px) {
+  .fragment1.teaser.block.column-2-cols {
+    flex-direction: row; 
+    align-items: stretch; 
+    justify-content: space-between;
+    margin-left: 0; 
+    margin-right: 0; 
+  }
+
+  /* Image should be on the LEFT and take 70% width */
+  .fragment1.teaser.block.column-2-cols > div:first-child {
+    flex: 70%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fragment1.teaser.block.column-2-cols picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Reduce image height to 80% of its original */
+  .fragment1.teaser.block.column-2-cols img {
+    max-width: 100%;
+    height: 80%;
+  }
+
+  /* Text Block should be on the RIGHT (30%) and taller */
+  .fragment1.teaser.block.column-2-cols .text-block {
+    flex: 30%; 
+    background-color: #111827; 
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction:column;
+    justify-content: center; 
+    
+    height: 500px;
+ width: 40%;
+ padding: 50px 30px;
+ overflow: hidden; 
+  }
+}
