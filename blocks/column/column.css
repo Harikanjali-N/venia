@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}/* Mobile-First Approach (Default: Mobile View, 360px and above) */
+.column-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.column.block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.column.block > div {
+  position: relative;
+  flex: 1 1 100%;  /* Full width on mobile */
+  max-width: 100%;
+}
+
+.column.block > div picture img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text Content on Image */
+.column.block > div div:last-child {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+.column.block h2 {
+  font-size: 32px; /* Adjusted for better mobile readability */
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-weight: 100;
+}
+
+.column.block p {
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+/* Tablet View (600px and above) */
+@media (min-width: 600px) {
+  .column.block > div {
+    flex: 1 1 calc(50% - 16px); /* Two columns */
+    max-width: calc(50% - 16px);
+  }
+
+  .column.block h2 {
+    font-size: 40px;
+  }
+
+  .column.block p {
+    font-size: 16px;
+  }
+}
+
+/* Desktop View (900px and above) */
+@media (min-width: 900px) {
+  .column.block > div {
+    flex: 1 1 calc(33.33% - 16px); /* Three columns */
+    max-width: calc(33.33% - 16px);
+  }
+
+  .column.block h2 {
+    font-size: 50px;
+  }
+
+  .column.block p {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,249 @@
+/* Base styles (Mobile-first approach) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.breadcrum-container {
+justify-content: left;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  
+}
+
+.breadcrum a {
+  text-decoration: underline;
+  color: #333;
+}
+
+
+.product-details-wrapper {
+  display: flex;
+  flex-direction:column;
+  gap: 2rem;
+  padding: 1rem;
+  font-family: var(--body-font-family);
+  margin-bottom: 3rem !important;
+  
+  
+  
+}
+.product-media-wrapper{
+  display: flex;
+  flex-direction:column-reverse;
+  width: 100%;
+}
+
+.product-details {
+  flex-direction: column;
+}
+
+.product-images {
+  display: flex;
+  gap: 1rem; /* Increases spacing between images */
+  overflow-x: auto;
+  flex-direction: row;
+}
+
+.product-images img {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15); /* Softer, more natural shadow */
+  border-radius: 8px; /* Smooth edges */
+  background: white;
+  padding: 5px; /* Space around the image */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.product-images img:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25); /* Slightly stronger on hover */
+}
+
+
+.main-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.main-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1rem;
+ 
+
+}
+.nav .product-info {
+  display: flex;
+  
+}
+.product-info .product-title,.size-selector,.quantity-selector{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px; /* Adds space between text and the border */
+}
+.product-info .product-title p {
+  font-size: 1.5rem;
+  font-weight: 100; 
+}
+
+.product-title p:last-child {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #444;
+}
+
+.size-selector, .quantity-selector {
+  font-size: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+.size-button {
+  font-size: 1.2rem;
+  padding: 12px 18px;
+  margin-right: 4px;
+}
+
+.size-buttons-wrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.quantity-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background-color: #ccc;
+}
+
+.quantity-display {
+  width: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: none;
+  background: transparent;
+}
+
+
+.cart-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.button-container a {
+  background-color: #2954FF;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button-container a:hover {
+  background-color: #333;
+}
+
+.icon-like img {
+  width: 20px;
+  height: 20px;
+}
+
+.product-desc-wrapper {
+  padding: 1rem;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid #ddd; /* Adds a border above the product description */
+  padding-top: 1.5rem;
+  font-family: var(--body-font-family);
+}
+
+.product-desc ul {
+  padding-left: 1.5rem;
+}
+.product-desc ul li {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .product-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .product-media-wrapper{
+    display: flex;
+    flex-direction:row;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    gap:8rem;
+  }
+  .product-details-wrapper {
+    display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  .product-images {
+      flex-direction: column;
+  }
+}
+
+@media (min-width:900px) {
+  .product-details-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+     
+  }
+  .cart-actions {
+      flex-direction: row;
+      justify-content: flex-start;
+  }
+  .button-container a {
+      padding: 1rem 2rem;
+  }
+  
+  
+.product-desc > div {
+  display: flex;
+  flex-direction: row;
+ 
+  justify-content: space-between; /* Align content properly */
+}
+
+.product-desc > div > div {
+  flex: 1; /* Make both sections take equal space */
+}
+}
