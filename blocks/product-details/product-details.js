@@ -1,3 +1,41 @@
+function createSizeSelector(sizeContainer, selectedSizeText) {
+    const availableSizes = ['S', 'M', 'L'];
+
+    availableSizes.forEach(size => {
+        const sizeBtn = document.createElement("button");
+        sizeBtn.textContent = size;
+        sizeBtn.classList.add("size-button");
+
+        sizeBtn.addEventListener("click", () => {
+            selectedSizeText.innerHTML = `Selected Size: <strong>${size}</strong>`;
+            document.querySelectorAll(".size-button").forEach(btn => btn.classList.remove("selected"));
+            sizeBtn.classList.add("selected");
+        });
+
+        sizeContainer.appendChild(sizeBtn);
+    });
+}
+
+function createQuantitySelector(quantityWrapper, quantityDisplay, decrementBtn, incrementBtn) {
+    decrementBtn.addEventListener("click", () => {
+        let qty = parseInt(quantityDisplay.value);
+        qty--;
+        quantityDisplay.value = qty;
+        decrementBtn.disabled = qty === 1;
+    });
+
+    incrementBtn.addEventListener("click", () => {
+        let qty = parseInt(quantityDisplay.value);
+        qty++;
+        quantityDisplay.value = qty;
+        decrementBtn.disabled = false;
+    });
+
+    quantityWrapper.appendChild(decrementBtn);
+    quantityWrapper.appendChild(quantityDisplay);
+    quantityWrapper.appendChild(incrementBtn);
+}
+
 export default function decorate(block) {
     const divs = Array.from(block.children);
     console.log(divs[0]);
@@ -24,24 +62,9 @@ export default function decorate(block) {
     // Size Selection Feature
     const sizeContainer = document.createElement("div");
     sizeContainer.classList.add("size-buttons-wrapper");
-
-    const availableSizes = ['S', 'M', 'L'];
     const selectedSizeText = productInfoDivs[1].querySelector("p:nth-child(2)");
-
-    availableSizes.forEach(size => {
-        const sizeBtn = document.createElement("button");
-        sizeBtn.textContent = size;
-        sizeBtn.classList.add("size-button");
-
-        sizeBtn.addEventListener("click", () => {
-            selectedSizeText.innerHTML = `Selected Size: <strong>${size}</strong>`;
-            document.querySelectorAll(".size-button").forEach(btn => btn.classList.remove("selected"));
-            sizeBtn.classList.add("selected");
-        });
-
-        sizeContainer.appendChild(sizeBtn);
-    });
-
+    
+    createSizeSelector(sizeContainer, selectedSizeText);
     productInfoDivs[1].appendChild(sizeContainer);
 
     // Quantity Selection Feature
@@ -63,24 +86,6 @@ export default function decorate(block) {
     incrementBtn.textContent = "+";
     incrementBtn.classList.add("quantity-btn");
 
-    decrementBtn.addEventListener("click", () => {
-        let qty = parseInt(quantityDisplay.value);
-        qty--;
-        quantityDisplay.value = qty;
-        decrementBtn.disabled = qty === 1;
-    });
-
-    incrementBtn.addEventListener("click", () => {
-        let qty = parseInt(quantityDisplay.value);
-        qty++;
-        quantityDisplay.value = qty;
-        decrementBtn.disabled = false;
-    });
-
-    quantityWrapper.appendChild(decrementBtn);
-    quantityWrapper.appendChild(quantityDisplay);
-    quantityWrapper.appendChild(incrementBtn);
+    createQuantitySelector(quantityWrapper, quantityDisplay, decrementBtn, incrementBtn);
     productInfoDivs[2].appendChild(quantityWrapper);
-
-   
 }

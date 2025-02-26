@@ -203,9 +203,7 @@ header nav .nav-sections ul > li > ul > li {
  
   header nav .nav-sections .nav-drop::after {
     content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0.5em;
+    display: inline-block;    top: 0.5em;
     right: 2px;
     transform: rotate(135deg);
     transition: transform 0.2s ease-in-out;

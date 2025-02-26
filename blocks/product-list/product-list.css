@@ -9,25 +9,28 @@
 .product-grid {
     display: flex;
     /* Allows wrapping into multiple rows */
-    justify-content: space-between; /* Centers items in each row */
-    gap: 10px; /* Adjusted gap to fit 5 products per row on desktop */
+    justify-content: space-between;
+    /* Centers items in each row */
+    gap: 10px;
+    /* Adjusted gap to fit 5 products per row on desktop */
     padding: 20px;
     font-family: var(--body-font-family);
 }
 
 .product-card {
-    flex: 1 1 calc(100% - 10px); /* 1 per row on smallest screens */
+    flex: 1 1 calc(100% - 10px);
+    /* 1 per row on smallest screens */
     max-width: calc(100% - 10px);
     background: #fff;
     border-radius: 8px;
     padding: 15px;
     text-align: center;
     box-sizing: border-box;
-  
+
     display: flex;
     flex-direction: column;
-    
-    
+
+
 }
 
 .carousel-wrapper {
@@ -63,11 +66,13 @@
     gap: 10px;
     justify-content: flex-start;
     margin-top: 10px;
-}/* Ensures all product titles have the same height */
+}
+
+/* Ensures all product titles have the same height */
 .product-title {
     font-size: 16px;
     margin: 10px 0;
-    
+
     overflow: hidden;
     text-align: left;
     white-space: nowrap;
@@ -75,8 +80,9 @@
 }
 
 
-.add-to-cart, .favorite-btn {
-    padding:0 5px 0 5px ;
+.add-to-cart,
+.favorite-btn {
+    padding: 0 5px 0 5px;
     border: none;
     cursor: pointer;
     font-size: medium;
@@ -92,7 +98,7 @@
 
 .favorite-btn {
     background: white;
-    
+
     color: #d32f2f;
 }
 
@@ -119,9 +125,11 @@
         flex: 1 1 calc(33.33% - 10px);
         max-width: calc(33.33% - 10px);
     }
-    .product-card.add-to-cart, .favorite-btn {
-        padding:0 15px 0 15px ;
-}
+
+    .product-card.add-to-cart,
+    .favorite-btn {
+        padding: 0 15px 0 15px;
+    }
 }
 
 /* Desktop View (900px and above) - 5 Products per row */
@@ -130,10 +138,12 @@
         flex: 1 1 calc(20% - 10px);
         max-width: calc(20% - 10px);
     }
-    .product-card.add-to-cart, .favorite-btn {
-        padding:0 15px 0 15px ;
+
+    .product-card.add-to-cart,
+    .favorite-btn {
+        padding: 0 15px 0 15px;
         font-size: small;
-}
+    }
 }
 
 /* Dots Navigation */

@@ -1,0 +1,29 @@
+.breadcrumb-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+  
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .breadcrumb-item a {
+    text-decoration: underline;
+    color: #333;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: #666;
+  }
+  
+  .breadcrumb-item:last-child {
+    font-weight: bold;
+    color: #111;
+  }
+  

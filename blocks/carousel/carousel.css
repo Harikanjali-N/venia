@@ -90,22 +90,21 @@ margin: 0;
   justify-content: center;
   gap: 6px 12px;
   padding: 12px;
-  background-color: var(--light-color);
   line-height: 0;
 }
 
 .carousel .carousel-slide-indicator button {
-  width: 24px;
-  height: 24px;
+  border: none;
+  width: 1rem;
+  height: 1rem;
   margin: 0;
   padding: 0;
   border-radius: 50%;
   background-color: #dadada;
-  transition: background-color 0.2s;
+  cursor: pointer;
 }
 
 .carousel .carousel-slide-indicator button:disabled,
-.carousel .carousel-slide-indicator button:hover,
 .carousel .carousel-slide-indicator button:focus-visible {
   background-color: var(--text-color);
 }

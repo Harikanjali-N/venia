@@ -85,3 +85,8 @@
     font-size: 18px;
   }
 }
+
+
+ li:has(.subscribe-button) {
+  display: block;
+ }

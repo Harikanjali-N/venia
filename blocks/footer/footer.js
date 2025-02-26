@@ -76,13 +76,7 @@ export default async function decorate(block) {
         input.placeholder = "Subscribe";
         input.classList.add("subscribe-input");
 
-        // Create subscribe button
-        const button = document.createElement("button");
-        button.textContent = "Subscribe";
-        button.classList.add("subscribe-button");
-
         // Append elements to the subscribe section
         subscribeSection.appendChild(input);
-        subscribeSection.appendChild(button);
     }
 }
