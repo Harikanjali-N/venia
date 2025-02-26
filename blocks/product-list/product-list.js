@@ -5,8 +5,8 @@ function getApiUrl() {
 }
 
 
-function updateCarousel(products, productContainer, dotsContainer) {
-    let currentIndex = 0;
+function updateCarousel(products,dotsContainer) {
+   
 
     function moveCarousel(index) {
         const itemsPerRow = getItemsPerRow();

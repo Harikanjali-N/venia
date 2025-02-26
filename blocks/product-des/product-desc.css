@@ -1,0 +1,28 @@
+.product-desc-wrapper {
+    padding: 1rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid #ddd; 
+    padding-top: 1.5rem;
+    font-family: var(--body-font-family);
+  }
+  
+  .product-desc ul {
+    padding-left: 1.5rem;
+  }
+  .product-desc ul li {
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width:900px){
+    .product-desc > div {
+        display: flex;
+        flex-direction: row;
+       
+        justify-content: space-between; 
+      }
+      
+      .product-desc > div > div {
+        flex: 1; 
+      }
+  }
