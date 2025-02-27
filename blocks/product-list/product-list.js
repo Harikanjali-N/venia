@@ -1,24 +1,17 @@
-
-function getApiUrl() {
-    const linkElement = document.querySelector('.product-list a');
-    return linkElement ? linkElement.href : null;
-}
-
-
-function updateCarousel(products,dotsContainer) {
+function updateCarousel(block,products, dotsContainer) {
    
 
     function moveCarousel(index) {
         const itemsPerRow = getItemsPerRow();
-        currentIndex = index;
+        
 
 
-        document.querySelectorAll('.product-card').forEach((card, i) => {
+        block.querySelectorAll('.product-card').forEach((card, i) => {
             card.style.display = (i >= index * itemsPerRow && i < (index + 1) * itemsPerRow) ? 'block' : 'none';
         });
 
 
-        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+        block.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
         dotsContainer.children[index]?.classList.add('active');
     }
 
@@ -74,11 +67,16 @@ function addEventListeners(block) {
 function addToCart(productId) {
     alert(`Product ${productId} added to cart!`);
 }
-
-
 export default async function decorate(block) {
-    const apiUrl = getApiUrl();
+    const apiUrl = block.querySelector('a')?.href || null;
+    const filterElement = block.querySelector("div:nth-of-type(2) p");
+    const filter = filterElement ? filterElement.innerText : "";
+
+    console.log("API URL:", apiUrl);
+    console.log("Filter Text:", filter);
+
     if (!apiUrl) {
+        console.error("Error: API URL not found.");
         block.innerHTML = '<p>Error: API URL not found.</p>';
         return;
     }
@@ -86,7 +84,14 @@ export default async function decorate(block) {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        const products = data.data.filter(item => item.path.includes('/productlist'));
+        console.log("API Response:", data);
+
+        if (!data || !data.data || !Array.isArray(data.data)) {
+            throw new Error("Invalid API response format");
+        }
+
+        const products = data.data.filter(item => item.path && item.path.includes('/productlist'));
+        console.log("Products fetched:", products);
 
         block.innerHTML = '';
 
@@ -94,7 +99,6 @@ export default async function decorate(block) {
             block.innerHTML = '<p>No products available.</p>';
             return;
         }
-
 
         const carouselWrapper = document.createElement('div');
         carouselWrapper.classList.add('carousel-wrapper');
@@ -107,12 +111,11 @@ export default async function decorate(block) {
             productCard.classList.add('product-card');
 
             productCard.innerHTML = `
-           <a href="${product.path}">
-                <div class="product-image-wrapper">
-                    <img src="${product.image}" alt="${product.title}" class="product-image">
-                </div>
-            </a>
-
+                <a href="${product.path}">
+                    <div class="product-image-wrapper">
+                        <img src="${product.image}" alt="${product.title}" class="product-image">
+                    </div>
+                </a>
                 <h3 class="product-title">${product.title}</h3>
                 <h3 class="product-price">${product.price}</h3>
                 <div class="product-actions">
@@ -127,17 +130,14 @@ export default async function decorate(block) {
         carouselWrapper.appendChild(productContainer);
         block.appendChild(carouselWrapper);
 
-
         const dotsContainer = document.createElement('div');
         dotsContainer.classList.add('carousel-dots');
         block.appendChild(dotsContainer);
 
-        updateCarousel(products, productContainer, dotsContainer);
-
-
+        updateCarousel(block, products, dotsContainer);
         addEventListeners(block);
     } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
         block.innerHTML = '<p>Failed to load products.</p>';
     }
 }

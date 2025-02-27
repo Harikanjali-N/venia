@@ -1,0 +1,43 @@
+.product-desc-wrapper {
+    padding: 1rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid #ddd;
+    padding-top: 1.5rem;
+    font-family: var(--body-font-family);
+    width: 100%;
+}
+
+.product-desc ul {
+    padding-left: 1.5rem;
+}
+
+.product-desc ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* 🔹 Default (Mobile View: Stacked Layout) */
+.product-desc > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between Description & Details */
+}
+
+/* 🔹 Desktop View (900px and above: Side-by-Side) */
+@media (min-width: 900px) {
+    .product-desc > div {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem; 
+        width: 100%;
+    }
+
+    .product-desc > div > div {
+        flex: 1;
+        min-width: 45%;
+        max-width: 50%; /* Ensures equal spacing */
+    }
+}
